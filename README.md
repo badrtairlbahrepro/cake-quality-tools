@@ -34,38 +34,20 @@ public function bootstrap(): void
 }
 ```
 
-### 3. Configurer les Routes
+### 3. Les Routes sont Chargées Automatiquement
 
-Dans votre fichier `config/routes.php` :
-
-```php
-$builder->scope('/quality-tools', function (RouteBuilder $routes) {
-    $routes->connect('/', [
-        'plugin' => 'CakeQualityTools',
-        'controller' => 'QualityTools',
-        'action' => 'index'
-    ]);
-    $routes->connect('/run-tests', [
-        'plugin' => 'CakeQualityTools',
-        'controller' => 'QualityTools',
-        'action' => 'runTests'
-    ]);
-    $routes->connect('/run-stan', [
-        'plugin' => 'CakeQualityTools',
-        'controller' => 'QualityTools',
-        'action' => 'runStan'
-    ]);
-    $routes->connect('/run-cs', [
-        'plugin' => 'CakeQualityTools',
-        'controller' => 'QualityTools',
-        'action' => 'runCodeSniffer'
-    ]);
-});
-```
+✅ **Les routes sont chargées automatiquement** via le fichier `config/routes.php` du plugin.
+Aucune configuration manuelle n'est nécessaire !
 
 ### 4. Accéder au Dashboard
 
 Accédez à : **http://votre-domaine.com/quality-tools**
+
+Les URLs suivantes sont disponibles automatiquement :
+- `/quality-tools/` - Tableau de bord principal
+- `/quality-tools/run-tests` - Exécuter les tests PHPUnit
+- `/quality-tools/run-stan` - Exécuter l'analyse PHPStan
+- `/quality-tools/run-cs` - Exécuter CodeSniffer
 
 ## 🎯 Utilisation
 
