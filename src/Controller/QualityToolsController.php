@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace CakeQualityTools\Controller;
 
 use Cake\Event\EventInterface;
@@ -11,13 +9,15 @@ use Cake\Http\Response;
  * QualityTools Controller
  *
  * Dashboard for running quality checks (PHPUnit, PHPStan, CodeSniffer)
+ * 
+ * Compatible PHP 7.4+ and Bootstrap framework
  */
 class QualityToolsController extends \App\Controller\AppController
 {
     /**
      * Initialize method
      */
-    public function initialize(): void
+    public function initialize()
     {
         parent::initialize();
         $this->loadComponent('Flash');
@@ -26,7 +26,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Before filter callback
      */
-    public function beforeFilter(EventInterface $event): void
+    public function beforeFilter(EventInterface $event)
     {
         parent::beforeFilter($event);
         
@@ -37,7 +37,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Display quality tools dashboard
      */
-    public function index(): void
+    public function index()
     {
         // Render the quality dashboard
     }
@@ -45,7 +45,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Run PHPUnit tests via AJAX
      */
-    public function runTests(): ?Response
+    public function runTests()
     {
         $this->request->allowMethod(['get']);
         $this->autoRender = false;
@@ -77,7 +77,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Run PHPStan analysis via AJAX
      */
-    public function runStan(): ?Response
+    public function runStan()
     {
         $this->request->allowMethod(['get']);
         $this->autoRender = false;
@@ -109,7 +109,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Run CodeSniffer check via AJAX
      */
-    public function runCodeSniffer(): ?Response
+    public function runCodeSniffer()
     {
         $this->request->allowMethod(['get']);
         $this->autoRender = false;
@@ -138,4 +138,3 @@ class QualityToolsController extends \App\Controller\AppController
         }
     }
 }
-
