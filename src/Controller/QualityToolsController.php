@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CakeQualityTools\Controller;
 
 use Cake\Event\EventInterface;
@@ -17,7 +19,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Initialize method
      */
-    public function initialize()
+    public function initialize(): void
     {
         parent::initialize();
         $this->loadComponent('Flash');
@@ -26,7 +28,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Before filter callback
      */
-    public function beforeFilter(EventInterface $event)
+    public function beforeFilter(EventInterface $event): void
     {
         parent::beforeFilter($event);
         
@@ -37,7 +39,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Display quality tools dashboard
      */
-    public function index()
+    public function index(): void
     {
         // Render the quality dashboard
     }
@@ -45,7 +47,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Run PHPUnit tests via AJAX
      */
-    public function runTests()
+    public function runTests(): ?Response
     {
         $this->request->allowMethod(['get']);
         $this->autoRender = false;
@@ -77,7 +79,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Run PHPStan analysis via AJAX
      */
-    public function runStan()
+    public function runStan(): ?Response
     {
         $this->request->allowMethod(['get']);
         $this->autoRender = false;
@@ -109,7 +111,7 @@ class QualityToolsController extends \App\Controller\AppController
     /**
      * Run CodeSniffer check via AJAX
      */
-    public function runCodeSniffer()
+    public function runCodeSniffer(): ?Response
     {
         $this->request->allowMethod(['get']);
         $this->autoRender = false;
